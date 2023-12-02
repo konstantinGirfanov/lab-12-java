@@ -59,7 +59,7 @@ public class Tests {
     }
 
     @Test
-    public void TestEmpty() throws NumberFormatException{
+    public void TestEmpty(){
 
         try{
             Integer.decode("");
@@ -71,7 +71,7 @@ public class Tests {
     }
 
     @Test
-    public void TestNull() throws NullPointerException{
+    public void TestNull(){
 
         try{
             Integer.decode(null);
@@ -91,7 +91,7 @@ public class Tests {
         Assert.assertEquals(expected, actual);
     }
     @Test
-    public void TestDoubleSigns() throws  NumberFormatException{
+    public void TestDoubleSigns(){
 
         try{
             Integer.decode("++5");
@@ -127,7 +127,7 @@ public class Tests {
     }
 
     @Test
-    public void TestOutOfMaxValue() throws NumberFormatException{
+    public void TestOutOfMaxValue(){
         try{
             Integer.decode(String.valueOf((long)Integer.MAX_VALUE + 1));
             Assert.fail();
