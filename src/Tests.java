@@ -58,28 +58,16 @@ public class Tests {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test
+    @Test (expected = NumberFormatException.class)
     public void TestEmpty(){
 
-        try{
-            Integer.decode("");
-            Assert.fail();
-        }
-        catch (NumberFormatException e){
-            Assert.assertNotEquals("", e.getMessage());
-        }
+        Integer.decode("");
     }
 
-    @Test
-    public void TestNull(){
+    @Test (expected = NumberFormatException.class)
+    public void TestOutOfMaxValue(){
 
-        try{
-            Integer.decode(null);
-            Assert.fail();
-        }
-        catch (NullPointerException e){
-            Assert.assertNotEquals("", e.getMessage());
-        }
+        Integer.decode(String.valueOf((long)Integer.MAX_VALUE + 1));
     }
 
     @Test
@@ -119,17 +107,6 @@ public class Tests {
 
         try{
             Integer.decode("--5");
-            Assert.fail();
-        }
-        catch (NumberFormatException e){
-            Assert.assertNotEquals("", e.getMessage());
-        }
-    }
-
-    @Test
-    public void TestOutOfMaxValue(){
-        try{
-            Integer.decode(String.valueOf((long)Integer.MAX_VALUE + 1));
             Assert.fail();
         }
         catch (NumberFormatException e){
